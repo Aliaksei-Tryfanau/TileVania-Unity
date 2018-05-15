@@ -21,7 +21,6 @@ public class Player : MonoBehaviour {
     BoxCollider2D myFeet;
     float gravityScaleAtStart;
 
-    // Message then methods
     void Start() {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
@@ -30,7 +29,6 @@ public class Player : MonoBehaviour {
         gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isAlive) { return; }
@@ -44,7 +42,7 @@ public class Player : MonoBehaviour {
 
     private void Run()
     {
-        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value is betweeen -1 to +1
+        float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal");
         Vector2 playerVelocity = new Vector2(controlThrow * runSpeed, myRigidBody.velocity.y);
         myRigidBody.velocity = playerVelocity;
 
